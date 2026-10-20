@@ -15,26 +15,42 @@
 
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+  <!-- Estilos para los botones de idioma y ocultar banners de Google -->
+  <style>
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
+    body { top: 0px !important; }
+    .goog-tooltip { display: none !important; }
+    .goog-tooltip:hover { display: none !important; }
+    .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+  </style>
 </head>
 <body>
 
   <header id="header">
     <div class="container header-content">
-      <a href="#" class="logo">Portfolio</a>
-      <nav>
-        <ul class="nav-links">
+      <a href="category-ui-ux.html" class="logo">← UI / UX</a>
+      <nav style="display: flex; align-items: center; gap: 20px;">
+        <ul class="nav-links" style="margin: 0; padding: 0;">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Work</a></li>
-          <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="resume.html">Resume</a></li>
         </ul>
+
+        <!-- BOTONES VISIBLES PARA EL USUARIO -->
+        <div class="lang-selector" style="display: flex; align-items: center; gap: 6px;">
+          <button onclick="translatePage('es')" class="lang-btn" style="background: none; border: 1px solid #4A90E2; color: #4A90E2; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem;">ES</button>
+          <button onclick="translatePage('en')" class="lang-btn" style="background: none; border: 1px solid #ccc; color: #666; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem;">EN</button>
+        </div>
+
+        <!-- DIV OCULTO DONDE TRABAJA GOOGLE -->
+        <div id="google_translate_element" style="display:none;"></div>
       </nav>
     </div>
   </header>
 
- <main>
-  <section id="hero" class="container">
+  <main>
+    <section id="hero" class="container">
       <div class="hero-wrapper fade-in-up">
         
         <div class="hero-content">
@@ -50,8 +66,7 @@
           <div class="profile-placeholder">
             <img src="assets/images/eduardo-profile.jpeg" alt="Eduardo Mosquera" class="profile-img">
           </div>
-          
-          </div>
+        </div>
 
       </div>
     </section>
@@ -71,49 +86,49 @@
     </section>
 
     <section id="projects">
-  <div class="container section-content fade-in">
-    <h2 class="section-title">Expertise & Work</h2>
-    <div class="projects-grid">
-      
-      <a href="category-inclusive-design.html" class="project-card">
-        <div class="project-img-container">
-          <img src="assets/images/inclusive-design-thumb.JPG" alt="Inclusive Product Design" class="project-img">
-        </div>
-        <div class="project-info">
-          <span class="category-tag">Social Impact & Accessibility</span>
-          <h3>Inclusive Product Design</h3>
-          <p>Developing inclusive, human-centered products that transform complex learning challenges into tangible and accessible experiences.</p>
-          <span class="view-more">Explore Projects →</span>
-        </div>
-      </a>
+      <div class="container section-content fade-in">
+        <h2 class="section-title">Expertise & Work</h2>
+        <div class="projects-grid">
+          
+          <a href="category-inclusive-design.html" class="project-card">
+            <div class="project-img-container">
+              <img src="assets/images/inclusive-design-thumb.jpg" alt="Inclusive Product Design" class="project-img">
+            </div>
+            <div class="project-info">
+              <span class="category-tag">Social Impact & Accessibility</span>
+              <h3>Inclusive Product Design</h3>
+              <p>Developing inclusive, human-centered products that transform complex learning challenges into tangible and accessible experiences.</p>
+              <span class="view-more">Explore Projects →</span>
+            </div>
+          </a>
 
-      <a href="category-ui-ux.html" class="project-card">
-        <div class="project-img-container">
-          <img src="assets/images/ui-ux-thumb.jpg" alt="UI/UX and Design Systems" class="project-img">
-        </div>
-        <div class="project-info">
-          <span class="category-tag">Digital Products</span>
-          <h3>UI / UX & Design Systems</h3>
-          <p>Designing scalable digital experiences through structured design systems, component libraries, and user-centered interfaces that improve usability and product consistency.</p>
-          <span class="view-more">Explore Projects →</span>
-        </div>
-      </a>
+          <a href="category-ui-ux.html" class="project-card">
+            <div class="project-img-container">
+              <img src="assets/images/ui-ux-thumb.jpg" alt="UI/UX and Design Systems" class="project-img">
+            </div>
+            <div class="project-info">
+              <span class="category-tag">Digital Products</span>
+              <h3>UI / UX & Design Systems</h3>
+              <p>Designing scalable digital experiences through structured design systems, component libraries, and user-centered interfaces that improve usability and product consistency.</p>
+              <span class="view-more">Explore Projects →</span>
+            </div>
+          </a>
 
-      <a href="category-prototyping.html" class="project-card">
-        <div class="project-img-container">
-          <img src="assets/images/hardware-thumb.jpg" alt="Prototyping and Hardware" class="project-img">
-        </div>
-        <div class="project-info">
-          <span class="category-tag">Industrial & Tech</span>
-          <h3>Prototyping & Hardware Integration</h3>
-          <p>Bridging physical and digital experiences through rapid prototyping, embedded systems, and interactive product development.</p>
-          <span class="view-more">Explore Projects →</span>
-        </div>
-      </a>
+          <a href="category-prototyping.html" class="project-card">
+            <div class="project-img-container">
+              <img src="assets/images/hardware-thumb.jpg" alt="Prototyping and Hardware" class="project-img">
+            </div>
+            <div class="project-info">
+              <span class="category-tag">Industrial & Tech</span>
+              <h3>Prototyping & Hardware Integration</h3>
+              <p>Bridging physical and digital experiences through rapid prototyping, embedded systems, and interactive product development.</p>
+              <span class="view-more">Explore Projects →</span>
+            </div>
+          </a>
 
-    </div>
-  </div>
-</section>
+        </div>
+      </div>
+    </section>
 
     <section id="skills" class="bg-alt">
       <div class="container section-content fade-in">
@@ -152,38 +167,35 @@
     </section>
 
     <section id="contact">
-  <div class="container section-content fade-in">
-    <h2 class="section-title">Let's Connect</h2>
-    <p class="contact-subtitle">I’m currently open to new opportunities and collaborations. If you’d like to work together, or simply start a conversation, I’d be happy to hear from you!</p>
-    
-    <div class="contact-layout">
-      <div class="contact-links">
-        <a href="mailto:eduardomosquera2000@gmail.com" class="contact-link">eduardomosquera2000@gmail.com</a>
-        <a href="https://linkedin.com/in/eduardo-mosquera-design" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
-        <a href="https://behance.net/eduardomosquera1" target="_blank" rel="noopener noreferrer" class="contact-link">Behance</a>
+      <div class="container section-content fade-in">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="contact-subtitle">I’m currently open to new opportunities and collaborations. If you’d like to work together, or simply start a conversation, I’d be happy to hear from you!</p>
+        
+        <div class="contact-layout">
+          <div class="contact-links">
+            <a href="mailto:eduardomosquera2000@gmail.com" class="contact-link">eduardomosquera2000@gmail.com</a>
+            <a href="https://linkedin.com/in/eduardo-mosquera-design" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+            <a href="https://behance.net/eduardomosquera1" target="_blank" rel="noopener noreferrer" class="contact-link">Behance</a>
+          </div>
+          
+          <form class="contact-form" action="https://formspree.io/f/mbdqpdzl" method="POST">
+            <div class="form-group">
+              <label for="name" class="sr-only">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="sr-only">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <label for="message" class="sr-only">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
       </div>
-      
-      <form action="https://formspree.io/f/mbdqpdzl" method="POST" class="contact-form">
-        <div class="form-group">
-          <label for="name" class="sr-only">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name">
-        </div>
-        <div class="form-group">
-          <label for="email" class="sr-only">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your Email" required autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="message" class="sr-only">Message</label>
-          <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-        </div>
-        
-        <input type="text" name="_subject" value="New Contact from Portfolio" style="display:none">
-        
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
   <footer>
@@ -194,5 +206,26 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- SCRIPTS DE TRADUCCIÓN (Al final de la página) -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'es,en',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    function translatePage(lang) {
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+      }
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
