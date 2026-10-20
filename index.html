@@ -15,15 +15,6 @@
 
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <link rel="apple-touch-icon" href="assets/images/favicon.png">
-
-  <!-- Estilos para los botones de idioma y ocultar banners de Google -->
-  <style>
-    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon { display: none !important; }
-    body { top: 0px !important; }
-    .goog-tooltip { display: none !important; }
-    .goog-tooltip:hover { display: none !important; }
-    .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
-  </style>
 </head>
 <body>
 
@@ -37,14 +28,12 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <!-- BOTONES VISIBLES PARA EL USUARIO -->
-        <div class="lang-selector" style="display: flex; align-items: center; gap: 6px;">
-          <button onclick="translatePage('es')" class="lang-btn" style="background: none; border: 1px solid #4A90E2; color: #4A90E2; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem;">ES</button>
-          <button onclick="translatePage('en')" class="lang-btn" style="background: none; border: 1px solid #ccc; color: #666; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem;">EN</button>
+        <!-- CAMBIO DE IDIOMA ESTÁTICO LIMPIO -->
+        <div class="lang-switch" style="font-size: 0.85rem; font-weight: 600;">
+          <a href="index-es.html" style="color: #888; text-decoration: none;">ES</a>
+          <span style="color: #ccc; margin: 0 4px;">|</span>
+          <span style="color: #4A90E2;">EN</span>
         </div>
-
-        <!-- DIV OCULTO DONDE TRABAJA GOOGLE -->
-        <div id="google_translate_element" style="display:none;"></div>
       </nav>
     </div>
   </header>
@@ -205,42 +194,6 @@
     </div>
   </footer>
 
-<!-- SCRIPTS DE TRADUCCIÓN ROBUSTOS -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'es,en',
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-
-    function translatePage(lang) {
-      let attempts = 0;
-      const interval = setInterval(() => {
-        const select = document.querySelector('.goog-te-combo');
-        if (select) {
-          select.value = lang;
-          select.dispatchEvent(new Event('change'));
-          clearInterval(interval);
-        } else {
-          attempts++;
-          if (attempts > 10) { // Si pasa 1 segundo y no responde, fuerza la cookie
-            clearInterval(interval);
-            setTranslateCookie(lang);
-          }
-        }
-      }, 100);
-    }
-
-    function setTranslateCookie(lang) {
-      const domain = window.location.hostname;
-      document.cookie = `googtrans=/en/${lang}; path=/; domain=${domain}`;
-      document.cookie = `googtrans=/en/${lang}; path=/;`;
-      window.location.reload();
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
